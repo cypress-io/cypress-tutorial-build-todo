@@ -15,4 +15,12 @@ describe('Input form', () => {
       .type(typedText)
       .should('have.value', typedText)
   })
+
+  context('Form submission', () => {
+    it.only('Adds a new todo on submit', () => {
+      cy.get('.new-todo')
+        .type('Buy eggs')
+        .type('{enter}')
+    })
+  })
 })
