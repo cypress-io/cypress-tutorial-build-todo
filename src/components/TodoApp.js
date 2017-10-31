@@ -27,7 +27,8 @@ export default class TodoApp extends Component {
     const newTodo = {name: this.state.currentTodo, isComplete: false}
     saveTodo(newTodo)
       .then(({data}) => this.setState({
-        todos: this.state.todos.concat(data)
+        todos: this.state.todos.concat(data),
+        currentTodo: ''
       }))
   }
 
