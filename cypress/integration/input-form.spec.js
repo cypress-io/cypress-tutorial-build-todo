@@ -18,6 +18,13 @@ describe('Input form', () => {
 
   context('Form submission', () => {
     it.only('Adds a new todo on submit', () => {
+      cy.server()
+      cy.route('POST', '/api/todos', {
+        name: 'Buy eggs',
+        id: 1,
+        isComplete: false
+      })
+
       cy.get('.new-todo')
         .type('Buy eggs')
         .type('{enter}')
