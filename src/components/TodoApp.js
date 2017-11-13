@@ -45,7 +45,6 @@ export default class TodoApp extends Component {
     }
     updateTodo(updated)
       .then(({data}) => {
-        debugger
         const targetIndex = this.state.todos.findIndex(
           t => t.id === data.id
         )
