@@ -9,6 +9,7 @@ yarn-error.log*
 .env
 
 build
+cypress/videos
 
 .DS_Store
 .env.local
