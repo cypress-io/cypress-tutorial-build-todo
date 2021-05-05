@@ -3,28 +3,12 @@ describe("Input form", () => {
     cy.seedAndVisit([]);
   });
 
-  it("focuses input on load 0", () => {
-    cy.visit("http://localhost:3030");
-
-    cy.focused().should("have.class", "new-todo");
-  });
-
-  it("focuses input on load", () => {
-    cy.focused().should("have.class", "new-todo");
-  });
-
-  it.only("accepts input", () => {
-    const typedText = "Buy Milsssssssk";
-
-    cy.get(".new-todo").type(typedText).should("have.value", typedText);
-  });
-
   context("Form submission", () => {
     beforeEach(() => {
       cy.server();
     });
 
-    it("Adds a new todo on submit", () => {
+    it.only("Adds a new todo on submit", () => {
       const itemText = "Buy eggs";
       cy.route("POST", "/api/todos", {
         name: itemText,
@@ -54,5 +38,21 @@ describe("Input form", () => {
 
       cy.get(".error").should("be.visible");
     });
+  });
+
+  it.only("focuses input on load 0", () => {
+    cy.visit("http://localhost:3030");
+
+    cy.focused().should("have.class", "new-todo");
+  });
+
+  it("focuses input on load", () => {
+    cy.focused().should("have.class", "new-todo");
+  });
+
+  it.only("accepts input", () => {
+    const typedText = "Buy Milsssssssk";
+
+    cy.get(".new-todo").type(typedText).should("have.value", typedText);
   });
 });
