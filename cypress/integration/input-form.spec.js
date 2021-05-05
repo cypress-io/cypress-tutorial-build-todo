@@ -13,8 +13,8 @@ describe("Input form", () => {
     cy.focused().should("have.class", "new-todo");
   });
 
-  it("accepts input", () => {
-    const typedText = "Buy Milk";
+  it.only("accepts input", () => {
+    const typedText = "Buy Milsssssssk";
 
     cy.get(".new-todo").type(typedText).should("have.value", typedText);
   });
